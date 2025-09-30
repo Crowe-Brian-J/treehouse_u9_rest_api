@@ -54,17 +54,17 @@
 
 ## Define Associations
 
-* [ ] In **User model**: `User.hasMany(Course)`
-* [ ] In **Course model**: `Course.belongsTo(User)`
-* [ ] Set `foreignKey: "userId"` linked to `User.id`.
+* [X] In **User model**: `User.hasMany(Course)`
+* [X] In **Course model**: `Course.belongsTo(User)`
+* [X] Set `foreignKey: "userId"` linked to `User.id`.
 
 ---
 
 ## Testing Setup
 
-* [ ] Install Postman.
-* [ ] Import `RESTAPI.postman_collection.json`.
-* [ ] Don’t modify requests in the provided collection.
+* [X] Install Postman.
+* [X] Import `RESTAPI.postman_collection.json`.
+* [X] Don’t modify requests in the provided collection.
 
 ---
 

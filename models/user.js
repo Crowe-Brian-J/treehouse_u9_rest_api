@@ -3,7 +3,13 @@ const { Model } = require('sequelize')
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
-      // define association here
+      // A User can have many Courses
+      User.hasMany(models.Course, {
+        foreignKey: {
+          fieldName: 'userId',
+          allowNull: false
+        }
+      })
     }
   }
   User.init(

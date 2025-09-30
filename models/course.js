@@ -3,7 +3,13 @@ const { Model } = require('sequelize')
 module.exports = (sequelize, DataTypes) => {
   class Course extends Model {
     static associate(models) {
-      // define association here
+      // Each Course belongs to one User
+      Course.belongsTo(models.User, {
+        foreignKey: {
+          fieldName: 'userId',
+          allowNull: false
+        }
+      })
     }
   }
   Course.init(

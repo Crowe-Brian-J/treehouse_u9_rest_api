@@ -26,25 +26,25 @@
 
 ## Define Models
 
-* [ ] Create **User** model with attributes:
+* [X] Create **User** model with attributes:
 
-  * [ ] `firstName: string`
-  * [ ] `lastName: string`
-  * [ ] `emailAddress: string`
-  * [ ] `password: string`
-  * [ ] Generate with:
+  * [X] `firstName: string`
+  * [X] `lastName: string`
+  * [X] `emailAddress: string`
+  * [X] `password: string`
+  * [X] Generate with:
 
     ```
     npx sequelize model:create --name User --attributes firstName:string,lastName:string,emailAddress:string,password:string
     ```
 
-* [ ] Create **Course** model with attributes:
+* [X] Create **Course** model with attributes:
 
-  * [ ] `title: string`
-  * [ ] `description: text`
-  * [ ] `estimatedTime: string`
-  * [ ] `materialsNeeded: string`
-  * [ ] Generate with:
+  * [X] `title: string`
+  * [X] `description: text`
+  * [X] `estimatedTime: string`
+  * [X] `materialsNeeded: string`
+  * [X] Generate with:
 
     ```
     npx sequelize model:create --name Course --attributes title:string,description:text,estimatedTime:string,materialsNeeded:string

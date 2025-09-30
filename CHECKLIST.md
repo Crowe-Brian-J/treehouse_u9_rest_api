@@ -7,20 +7,20 @@
 * [X] Run `npm run seed` to create and seed **fsjstd-restapi.db**.
 * [X] Verify the database using DB Browser.
 * [X] Start the app (`npm start`) and check `http://localhost:3000/` for the welcome message.
-* [X] **macOS Monterey only:** Change port to 3000
+* [X] **macOS Monterey, Ventura, Sonoma, Sequoia, & Tahoe:** Change port to 3000 (These instructions haven't been updated since at least 2021)
 
 ---
 
 ## Database Configuration
 
-* [ ] Install Sequelize.
-* [ ] Install Sequelize CLI as a dev dependency.
-* [ ] Run `npx sequelize init`.
-* [ ] Update `config.js`:
+* [X] Install Sequelize.
+* [X] Install Sequelize CLI as a dev dependency.
+* [X] Run `npx sequelize init`.
+* [X] Update `config.json`: // Updated by me
 
-  * [ ] `storage: "fsjstd-restapi.db"`
-  * [ ] `dialect: "sqlite"`
-* [ ] Use Sequelize’s `authenticate()` to test the connection.
+  * [X] `storage: "fsjstd-restapi.db"`
+  * [X] `dialect: "sqlite"`
+* [X] Use Sequelize’s `authenticate()` to test the connection.
 
 ---
 

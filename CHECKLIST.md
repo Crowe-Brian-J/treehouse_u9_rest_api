@@ -87,7 +87,7 @@
 
 ## Model Validation
 
-* [ ] **Users POST:** require `firstName`, `lastName`, `emailAddress`, `password`.
+* [X] **Users POST:** require `firstName`, `lastName`, `emailAddress`, `password`.
 * [ ] **Courses POST/PUT:** require `title`, `description`.
 * [ ] Respond with **400** if validation fails.
 

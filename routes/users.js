@@ -3,7 +3,7 @@
 const express = require('express')
 const bcrypt = require('bcrypt')
 const { User } = require('../models')
-const { authenticateUser } = require('../middleware/auth-user') // you'll create this later
+const { authenticateUser } = require('../middleware/auth-user') // I'll create this later
 
 const router = express.Router()
 

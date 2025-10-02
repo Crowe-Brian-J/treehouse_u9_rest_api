@@ -70,18 +70,18 @@
 
 ## Create User Routes
 
-* [ ] `/api/users` **GET** → return current authenticated user (200).
-* [ ] `/api/users` **POST** → create new user, set `Location: "/"`, return (201).
+* [X] `/api/users` **GET** → return current authenticated user (200).
+* [X] `/api/users` **POST** → create new user, set `Location: "/"`, return (201).
 
 ---
 
 ## Create Course Routes
 
-* [ ] `/api/courses` **GET** → return all courses w/ User object (200).
-* [ ] `/api/courses/:id` **GET** → return course w/ User object (200).
-* [ ] `/api/courses` **POST** → create course, set `Location`, return (201).
-* [ ] `/api/courses/:id` **PUT** → update course (204).
-* [ ] `/api/courses/:id` **DELETE** → delete course (204).
+* [X] `/api/courses` **GET** → return all courses w/ User object (200).
+* [X] `/api/courses/:id` **GET** → return course w/ User object (200).
+* [X] `/api/courses` **POST** → create course, set `Location`, return (201).
+* [X] `/api/courses/:id` **PUT** → update course (204).
+* [X] `/api/courses/:id` **DELETE** → delete course (204).
 
 ---
 

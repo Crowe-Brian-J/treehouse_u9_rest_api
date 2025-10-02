@@ -10,14 +10,15 @@ const router = express.Router()
 router.get('/courses', async (req, res, next) => {
   try {
     const courses = await Course.findAll({
+      attributes: { exclude: ['createdAt', 'updatedAt'] },
       include: [
         {
           model: User,
-          attributes: ['id', 'firstName', 'lastName', 'emailAddress'] // Filter out createdAt, updatedAt
+          attributes: { exclude: ['password', 'createdAt', 'updatedAt'] }
         }
       ]
     })
-    res.json(courses) // Defaults to 200
+    res.json(courses)
   } catch (error) {
     next(error)
   }
@@ -27,16 +28,16 @@ router.get('/courses', async (req, res, next) => {
 router.get('/courses/:id', async (req, res, next) => {
   try {
     const course = await Course.findByPk(req.params.id, {
+      attributes: { exclude: ['createdAt', 'updatedAt'] },
       include: [
         {
           model: User,
-          attributes: ['id', 'firstName', 'lastName', 'emailAddress'] // Filter out createdAt, updatedAt, password
+          attributes: { exclude: ['password', 'createdAt', 'updatedAt'] }
         }
       ]
     })
-
     if (course) {
-      res.json(course) // defaults to 200
+      res.json(course)
     } else {
       res.status(404).json({ message: 'Course not found' })
     }
@@ -66,12 +67,11 @@ router.put('/courses/:id', authenticateUser, async (req, res, next) => {
   try {
     const course = await Course.findByPk(req.params.id)
     if (course) {
-      if (course.userId === req.currentUser.id) {
-        await course.update(req.body)
-        res.status(204).end()
-      } else {
-        res.status(403).json({ message: 'Forbidden: Not the course owner' })
+      if (course.userId !== req.currentUser.id) {
+        return res.status(403).json({ message: 'Forbidden: Not course owner' })
       }
+      await course.update(req.body)
+      res.status(204).end()
     } else {
       res.status(404).json({ message: 'Course not found' })
     }
@@ -90,12 +90,11 @@ router.delete('/courses/:id', authenticateUser, async (req, res, next) => {
   try {
     const course = await Course.findByPk(req.params.id)
     if (course) {
-      if (course.userId === req.currentUser.id) {
-        await course.destroy()
-        res.status(204).end()
-      } else {
-        res.status(403).json({ message: 'Forbidden: Not the course owner' })
+      if (course.userId !== req.currentUser.id) {
+        return res.status(403).json({ message: 'Forbidden: Not course owner' })
       }
+      await course.destroy()
+      res.status(204).end()
     } else {
       res.status(404).json({ message: 'Course not found' })
     }

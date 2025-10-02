@@ -12,6 +12,7 @@ router.get('/users', authenticateUser, async (req, res) => {
   const user = req.currentUser
 
   res.json({
+    // Filter out password, createdAt, updatedAt
     id: user.id,
     firstName: user.firstName,
     lastName: user.lastName,

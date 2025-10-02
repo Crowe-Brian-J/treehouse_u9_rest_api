@@ -125,16 +125,16 @@
 
 ## Extra Credit (Exceeds Expectations)
 
-* [ ] **Email validation & uniqueness**:
+* [X] **Email validation & uniqueness**:
 
-  * [ ] Validate email format.
-  * [ ] Add `unique: true` to `emailAddress`.
-* [ ] **User Routes updates**:
+  * [X] Validate email format.
+  * [X] Add `unique: true` to `emailAddress`.
+* [X] **User Routes updates**:
 
-  * [ ] Filter out `password`, `createdAt`, `updatedAt` in **GET /api/users**.
-  * [ ] Handle `SequelizeUniqueConstraintError` in **POST /api/users** (return 400).
-* [ ] **Course Routes updates**:
+  * [X] Filter out `password`, `createdAt`, `updatedAt` in **GET /api/users**.
+  * [X] Handle `SequelizeUniqueConstraintError` in **POST /api/users** (return 400).
+* [X] **Course Routes updates**:
 
-  * [ ] Filter out `createdAt`, `updatedAt` in course GETs.
-  * [ ] Filter out `createdAt`, `updatedAt`, `password` in attached User object.
-  * [ ] Restrict **PUT/DELETE** to course owner; return **403** if not owner.
+  * [X] Filter out `createdAt`, `updatedAt` in course GETs.
+  * [X] Filter out `createdAt`, `updatedAt`, `password` in attached User object.
+  * [X] Restrict **PUT/DELETE** to course owner; return **403** if not owner.

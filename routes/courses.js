@@ -13,11 +13,11 @@ router.get('/courses', async (req, res, next) => {
       include: [
         {
           model: User,
-          attributes: ['id', 'firstName', 'lastName', 'emailAddress']
+          attributes: ['id', 'firstName', 'lastName', 'emailAddress'] // Filter out createdAt, updatedAt
         }
       ]
     })
-    res.json(courses) // defaults to 200
+    res.json(courses) // Defaults to 200
   } catch (error) {
     next(error)
   }
@@ -30,7 +30,7 @@ router.get('/courses/:id', async (req, res, next) => {
       include: [
         {
           model: User,
-          attributes: ['id', 'firstName', 'lastName', 'emailAddress']
+          attributes: ['id', 'firstName', 'lastName', 'emailAddress'] // Filter out createdAt, updatedAt, password
         }
       ]
     })
@@ -66,8 +66,12 @@ router.put('/courses/:id', authenticateUser, async (req, res, next) => {
   try {
     const course = await Course.findByPk(req.params.id)
     if (course) {
-      await course.update(req.body)
-      res.status(204).end()
+      if (course.userId === req.currentUser.id) {
+        await course.update(req.body)
+        res.status(204).end()
+      } else {
+        res.status(403).json({ message: 'Forbidden: Not the course owner' })
+      }
     } else {
       res.status(404).json({ message: 'Course not found' })
     }
@@ -86,8 +90,12 @@ router.delete('/courses/:id', authenticateUser, async (req, res, next) => {
   try {
     const course = await Course.findByPk(req.params.id)
     if (course) {
-      await course.destroy()
-      res.status(204).end()
+      if (course.userId === req.currentUser.id) {
+        await course.destroy()
+        res.status(204).end()
+      } else {
+        res.status(403).json({ message: 'Forbidden: Not the course owner' })
+      }
     } else {
       res.status(404).json({ message: 'Course not found' })
     }

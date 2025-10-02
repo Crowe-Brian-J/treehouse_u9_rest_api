@@ -1,34 +1,42 @@
 'use strict'
 
-// load modules
+// Load modules
 const express = require('express')
 const morgan = require('morgan')
 
-// variable to enable global error logging
+// Variable to enable global error logging
 const enableGlobalErrorLogging =
   process.env.ENABLE_GLOBAL_ERROR_LOGGING === 'true'
 
-// create the Express app
+// Create the Express app
 const app = express()
 
-// setup morgan which gives us http request logging
+// Setup morgan which gives us http request logging
 app.use(morgan('dev'))
 
-// setup a friendly greeting for the root route
+// Import routers
+const usersRouter = require('./routes/users')
+const coursesRouter = require('./routes/courses')
+
+// Mount routers
+app.use('/api', usersRouter)
+app.use('/api', coursesRouter)
+
+// Setup a friendly greeting for the root route
 app.get('/', (req, res) => {
   res.json({
     message: 'Welcome to the REST API project!'
   })
 })
 
-// send 404 if no other route matched
+// Send 404 if no other route matched
 app.use((req, res) => {
   res.status(404).json({
     message: 'Route Not Found'
   })
 })
 
-// setup a global error handler
+// Setup a global error handler
 app.use((err, req, res, next) => {
   if (enableGlobalErrorLogging) {
     console.error(`Global error handler: ${JSON.stringify(err.stack)}`)
@@ -40,10 +48,10 @@ app.use((err, req, res, next) => {
   })
 })
 
-// set our port
+// Set our port - 3000 because I'm on a Mac and I'm not disabling AirPlay Receiver
 app.set('port', process.env.PORT || 3000)
 
-// start listening on our port
+// Start listening on our port
 const server = app.listen(app.get('port'), () => {
   console.log(`Express server is listening on port ${server.address().port}`)
 })

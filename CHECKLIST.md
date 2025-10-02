@@ -101,22 +101,22 @@
 
 ## Authentication Middleware
 
-* [ ] Create middleware to parse `Authorization` header.
-* [ ] If valid → attach user to request, continue.
-* [ ] If invalid → return **401** + `"Access Denied"`.
-* [ ] Apply middleware to:
+* [X] Create middleware to parse `Authorization` header.
+* [X] If valid → attach user to request, continue.
+* [X] If invalid → return **401** + `"Access Denied"`.
+* [X] Apply middleware to:
 
-  * [ ] `/api/users GET`
-  * [ ] `/api/courses POST`
-  * [ ] `/api/courses/:id PUT`
-  * [ ] `/api/courses/:id DELETE`
+  * [X] `/api/users GET`
+  * [X] `/api/courses POST`
+  * [X] `/api/courses/:id PUT`
+  * [X] `/api/courses/:id DELETE`
 
 ---
 
 ## Final Checks
 
-* [ ] Add meaningful code comments.
-* [ ] Ensure consistent formatting & indentation.
+* [X] Add meaningful code comments.
+* [X] Ensure consistent formatting & indentation.
 * [ ] Test functionality thoroughly in browser & Postman.
 * [ ] Watch console for errors, fix any bugs.
 * [ ] Optional: share repo in Slack `#review-my-project` for feedback.

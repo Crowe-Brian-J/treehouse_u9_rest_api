@@ -24,13 +24,13 @@ const authenticateUser = async (req, res, next) => {
       if (authenticated) {
         req.currentUser = user
       } else {
-        message = 'Access Denied'
+        message = 'Access Denied - User Not Authenticated'
       }
     } else {
-      message = 'Access Denied'
+      message = 'Access Denied - No User'
     }
   } else {
-    message = 'Access Denied'
+    message = 'Access Denied - No Credentials'
   }
 
   if (message) {

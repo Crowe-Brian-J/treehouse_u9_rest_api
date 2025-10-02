@@ -11,6 +11,9 @@ const enableGlobalErrorLogging =
 // Create the Express app
 const app = express()
 
+// Parse JSON bodies
+app.use(express.json())
+
 // Setup morgan which gives us http request logging
 app.use(morgan('dev'))
 
@@ -48,8 +51,8 @@ app.use((err, req, res, next) => {
   })
 })
 
-// Set our port - 3000 because I'm on a Mac and I'm not disabling AirPlay Receiver
-app.set('port', process.env.PORT || 3000)
+// Set our port
+app.set('port', process.env.PORT || 5000)
 
 // Start listening on our port
 const server = app.listen(app.get('port'), () => {

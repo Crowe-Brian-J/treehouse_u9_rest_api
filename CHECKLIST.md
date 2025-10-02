@@ -88,14 +88,14 @@
 ## Model Validation
 
 * [X] **Users POST:** require `firstName`, `lastName`, `emailAddress`, `password`.
-* [ ] **Courses POST/PUT:** require `title`, `description`.
-* [ ] Respond with **400** if validation fails.
+* [X] **Courses POST/PUT:** require `title`, `description`.
+* [X] Respond with **400** if validation fails.
 
 ---
 
 ## Password Security
 
-* [ ] Hash passwords before saving (use `bcrypt`).
+* [X] Hash passwords before saving (use `bcrypt`).
 
 ---
 
